@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chi è Sergio Civitarese - Interessi, Sport e Passioni">
+  <title>Chi Sono - Sergio Civitarese</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="text-primary">&lt;</span>SC_<span class="text-accent">Portfolio</span><span class="text-primary"> /&gt;</span></a>
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="curriculum.html" class="nav-link">Curriculum</a>
+        <a href="presentazione.html" class="nav-link active">Chi Sono</a>
+      </nav>
+      <button class="hamburger" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav-mobile" id="mobileMenu">
+      <p class="nav-mobile-user"><span class="text-primary">&lt;</span>Sergio_<span class="text-accent">Civitarese</span><span class="text-primary">&gt;</span></p>
+      <div class="container">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="curriculum.html" class="nav-link">Curriculum</a>
+        <a href="presentazione.html" class="nav-link">Chi Sono</a>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/sergiocivitarese" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/sergiocivitarese" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section style="padding: 5rem 0;">
+      <div class="container" style="max-width: 56rem;">
+        <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem; color: var(--foreground); font-weight: 700;">
+          <span class="text-primary">&lt; </span>
+          Chi Sono
+          <span class="text-primary"> /&gt;</span>
+        </h1>
+        <p style="font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 3rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;">
+          Qualcosa in più su di me
+        </p>
+
+        <!-- Grid layout: testo sx + info cards dx -->
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem;">
+          <!-- Main text (2/3 on desktop) -->
+          <div style="grid-column: 1; display: flex; flex-direction: column; gap: 1.25rem; color: var(--muted-foreground); line-height: 1.6;">
+            <p>
+              Sono un <strong style="color: var(--foreground);">Software Developer</strong> appassionato
+              di tecnologia e innovazione. Il mio percorso nel mondo della programmazione è iniziato
+              per curiosità ed è diventato la mia professione e la mia passione.
+            </p>
+            <p>
+              Mi occupo principalmente di sviluppo backend, con un occhio di riguardo per il frontend 
+              che ho sempre trovato affascinante e un giorno spero di completare il mio bagaglio tecnicodiventando full stack.
+            </p>
+            <p>
+              Il mondo IT è solo una delle mie passioni. Se sei interessato puoi dare un'occhiata qui sotto per scoprire di più su di me, i miei interessi e i miei valori.
+            </p>
+          </div>
+
+          <!-- Photo Carousel / Slider di immagini personali -->
+          <div class="carousel-container" id="photoCarousel">
+            <div class="carousel-wrapper">
+              <div class="carousel-track" id="carouselTrack">
+                <!-- Slide 1 - Personale -->
+                <div class="carousel-slide">
+                  <img src="assets/images/foto1.jpeg" alt="Foto personale Sergio" class="carousel-image">
+                  <div class="carousel-overlay">
+                    <h3>foto 1</h3>
+                  </div>
+                </div>
+                <!-- Slide 2 - Personale -->
+                <div class="carousel-slide">
+                  <img src="assets/images/foto2.jpeg" alt="Foto personale Sergio" class="carousel-image">
+                  <div class="carousel-overlay">
+                    <h3>foto 2</h3>
+                  </div>
+                </div>
+                <!-- Slide 3 - Personale -->
+                <div class="carousel-slide">
+                  <img src="assets/images/foto3.jpeg" alt="Foto personale Sergio" class="carousel-image">
+                  <div class="carousel-overlay">
+                    <h3>foto 3</h3>
+                  </div>
+                </div>
+                <!-- Slide 4 - Personale -->
+                <div class="carousel-slide">
+                  <img src="assets/images/foto4.jpeg" alt="Foto personale Sergio" class="carousel-image">
+                  <div class="carousel-overlay">
+                    <h3>foto 4</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Frecce di navigazione -->
+            <button class="carousel-btn carousel-btn--prev" id="prevBtn" aria-label="Foto precedente">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-btn carousel-btn--next" id="nextBtn" aria-label="Foto successiva">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+            
+            <!-- Indicatori (dots) per le slide -->
+            <div class="carousel-indicators" id="carouselIndicators">
+              <button class="indicator active" data-index="0" aria-label="Vai alla foto 1"></button>
+              <button class="indicator" data-index="1" aria-label="Vai alla foto 2"></button>
+              <button class="indicator" data-index="2" aria-label="Vai alla foto 3"></button>
+              <button class="indicator" data-index="3" aria-label="Vai alla foto 4"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sport e attività -->
+        <h2 style="margin: 3rem 0 2rem; color: var(--primary);">Sport e Attività che Amo 🏃</h2>
+        <div class="activity-grid">
+          <div class="activity-card">
+            <div class="activity-card__image" style="background: linear-gradient(135deg, hsl(205, 85%, 50%) 0%, hsl(200, 90%, 60%) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">🏀</div>
+            <div class="activity-card__content">
+              <h3 class="activity-card__title">Basket</h3>
+              <p class="activity-card__description">Gioco regolarmente a basket con amici e squadre locali. E' lo sport a cui ho dato tutto me stesso e mi ha ripagato insegnandomi il lavoro di squadra e la determinazione nel raggiungere un obiettivo.</p>
+            </div>
+          </div>
+
+          <div class="activity-card">
+            <div class="activity-card__image" style="background: linear-gradient(135deg, hsl(300, 85%, 50%) 0%, hsl(270, 90%, 60%) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">🏃</div>
+            <div class="activity-card__content">
+              <h3 class="activity-card__title">Running</h3>
+              <p class="activity-card__description">Correre alleggerisce i miei pensieri e mi permette di essere libero.</p>
+            </div>
+          </div>
+
+          <div class="activity-card">
+            <div class="activity-card__image" style="background: linear-gradient(135deg, hsl(205, 85%, 50%) 0%, hsl(210, 90%, 60%) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">📷</div>
+            <div class="activity-card__content">
+              <h3 class="activity-card__title">Fotografia</h3>
+              <p class="activity-card__description">Mi piace catturare momenti speciali e raccontare storie attraverso un semplice scatto.</p>
+            </div>
+          </div>
+
+          <div class="activity-card">
+            <div class="activity-card__image" style="background: linear-gradient(135deg, hsl(35, 95%, 50%) 0%, hsl(30, 90%, 60%) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">✈️</div>
+            <div class="activity-card__content">
+              <h3 class="activity-card__title">Viaggiare</h3>
+              <p class="activity-card__description">Viaggiare mi permette di scoprire nuove culture, paesaggi e arricchire la mia esperienza di vita in questo mondo.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Valori -->
+        <h2 style="margin: 3rem 0 2rem; color: var(--primary);">
+          <span class="text-accent">// </span>
+          Interessi
+        </h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 4rem;">
+          <span style="padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); background: var(--card); cursor: default; transition: border-color 0.3s ease;">Web Development</span>
+          <span style="padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); background: var(--card); cursor: default; transition: border-color 0.3s ease;">Artificial Intelligence</span>
+          <span style="padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); background: var(--card); cursor: default; transition: border-color 0.3s ease;">Sport</span>
+          <span style="padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); background: var(--card); cursor: default; transition: border-color 0.3s ease;">Scienze</span>
+          <span style="padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); background: var(--card); cursor: default; transition: border-color 0.3s ease;">UI/UX Design</span>
+          <span style="padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); background: var(--card); cursor: default; transition: border-color 0.3s ease;">Film e Serie TV</span>
+          <span style="padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); background: var(--card); cursor: default; transition: border-color 0.3s ease;">Musica</span>
+        </div>
+
+        <!-- Valori -->
+        <h2 style="margin: 3rem 0 2rem; color: var(--primary);">I Miei Valori 🎯</h2>
+        <div class="card-section" style="margin-bottom: 1.5rem;">
+          <h3>Trust the process</h3>
+          <p>Impegno e duro lavoro alla fine ripagano sempre.</p>
+        </div>
+        <div class="card-section" style="margin-bottom: 1.5rem;">
+          <h3>All forn one, one for all</h3>
+          <p>Il lavoro di squadra è fondamentale. Ma soprattutto è divertente e stimolante.</p>
+        </div>
+        <div class="card-section" style="margin-bottom: 1.5rem;">
+          <h3>Persona > Professionista</h3>
+          <p>Mi piace pensare che dietro un gran professionista ci sia sempre una grande persona.</p>
+        </div>
+        <div class="card-section">
+          <h3>Respira, prendi fiato e ricomincia</h3>
+          <p>Errare è umano, rassegnatevi.</p>
+          <p>È l'approccio nell' affrontare quelle difficoltà che farà sempre la differenza.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-text font-mono">© 2026 — Built with <span class="text-primary">passion</span> &amp; <span class="text-accent">code</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/sergiocivitarese" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/sergiocivitarese" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

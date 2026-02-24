@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curriculum Vitae di Sergio Civitarese - Software Developer">
+  <title>Curriculum - Sergio Civitarese</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="text-primary">&lt;</span>SC_<span class="text-accent">Portfolio</span><span class="text-primary"> /&gt;</span></a>
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="curriculum.html" class="nav-link active">Curriculum</a>
+        <a href="presentazione.html" class="nav-link">Chi Sono</a>
+      </nav>
+      <button class="hamburger" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav-mobile" id="mobileMenu">
+      <p class="nav-mobile-user"><span class="text-primary">&lt;</span>Sergio_<span class="text-accent">Civitarese</span><span class="text-primary">&gt;</span></p>
+      <div class="container">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="curriculum.html" class="nav-link">Curriculum</a>
+        <a href="presentazione.html" class="nav-link">Chi Sono</a>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/sergiocivitarese" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/sergiocivitarese" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section style="padding: 5rem 0;">
+      <div class="container" style="max-width: 56rem;">
+        <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem; color: var(--foreground); font-weight: 700;">
+          <span class="text-primary">&lt; </span>
+          Curriculum Vitae
+          <span class="text-primary"> /&gt;</span>
+        </h1>
+        <p style="font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 3rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;">
+          Il mio percorso professionale e formativo
+        </p>
+
+        <!-- Esperienze Lavorative -->
+        <div style="margin-bottom: 4rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;">
+            <div style="padding: 0.5rem; border-radius: var(--radius); background: hsla(205, 85%, 50%, 0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
+              💼
+            </div>
+            <h2 style="font-size: 1.5rem; font-weight: 600;">Esperienze Lavorative</h2>
+          </div>
+          <div style="position: relative; padding-left: 2rem;">
+            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--primary) 0%, var(--sky) 100%);"></div>
+
+            <!-- Experience 1 -->
+            <div style="position: relative; padding-left: 2rem; margin-bottom: 2.5rem;">
+              <div style="position: absolute; left: -9px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--primary); border: 2px solid var(--card);"></div>
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem;">2025 — Presente</p>
+              <h3 style="font-size: 1rem; font-weight: 600;">Software Developer</h3>
+              <p style="color: var(--primary); font-size: 0.875rem; font-weight: 500;">DedaBit | Dedagroup</p>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem; margin-top: 0.5rem;">Sviluppo applicativo in Java, Spring Boot, Primefaces e HTML/CSS per una webapp in ambito migrazione dati bancario e/o assicurativo.</p>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem; margin-top: 0.5rem;">SQL Server, Eclipse, DBeaver, VScode, Github</p>
+            </div>
+
+            <!-- Experience 2 -->
+            <div style="position: relative; padding-left: 2rem; margin-bottom: 2.5rem;">
+              <div style="position: absolute; left: -9px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--primary); border: 2px solid var(--card);"></div>
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem;">2024- 2025</p>
+              <h3 style="font-size: 1rem; font-weight: 600;">Software Developer</h3>
+              <p style="color: var(--primary); font-size: 0.875rem; font-weight: 500;">DedaBit | Dedagroup</p>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem; margin-top: 0.5rem;">Onboarding e data migration di dati bancari tramite sviluppo e ottimizzazione di stored procedure SQL.</p>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem; margin-top: 0.5rem;">SQL Server e Oracle DB</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formazione -->
+        <div style="margin-bottom: 4rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;">
+            <div style="padding: 0.5rem; border-radius: var(--radius); background: hsla(35, 95%, 55%, 0.1); color: var(--accent); display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
+              🎓
+            </div>
+            <h2 style="font-size: 1.5rem; font-weight: 600;">Formazione</h2>
+          </div>
+          <div style="position: relative; padding-left: 2rem;">
+            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent) 0%, hsla(35, 95%, 55%, 0.4) 100%);"></div>
+
+              <!-- Education 1 -->
+              <div style="position: relative; padding-left: 2rem; margin-bottom: 2.5rem;">
+              <div style="position: absolute; left: -9px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 2px solid var(--card);"></div>
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem;">2025 - 2026</p>
+              <h3 style="font-size: 1rem; font-weight: 600;">Corso Data Science & AI</h3>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem;">Start2impact</p>
+            </div>
+
+
+            <!-- Education 2 -->
+            <div style="position: relative; padding-left: 2rem; margin-bottom: 2.5rem;">
+              <div style="position: absolute; left: -9px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 2px solid var(--card);"></div>
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem;">2024</p>
+              <h3 style="font-size: 1rem; font-weight: 600;">Java Deda Academy</h3>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem;">Dedagroup</p>
+            </div>
+
+            <!-- Education 3 -->
+              <div style="position: relative; padding-left: 2rem; margin-bottom: 2.5rem;">
+              <div style="position: absolute; left: -9px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 2px solid var(--card);"></div>
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem;">2018 - in pausa</p>
+              <h3 style="font-size: 1rem; font-weight: 600;">Ingegneria Gestionale ICT</h3>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem;">Politecnico di Torino</p>
+            </div>
+
+
+
+
+
+            <!-- Education 4 -->
+              <div style="position: relative; padding-left: 2rem; margin-bottom: 2.5rem;">
+              <div style="position: absolute; left: -9px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 2px solid var(--card);"></div>
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem;">2010 - 2015</p>
+              <h3 style="font-size: 1rem; font-weight: 600;">Diploma Tecnico Logistica e Trasporti e conduzione del mezzo navale</h3>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem;">Istituto Tecnico Nautico, "Leone Acciaiuoli, Ortona"</p>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem;">Votazione: 91/100</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificazioni -->
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;">
+            <div style="padding: 0.5rem; border-radius: var(--radius); background: hsla(200, 90%, 50%, 0.1); color: hsl(200, 90%, 60%); display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
+              🏆
+            </div>
+            <h2 style="font-size: 1.5rem; font-weight: 600;">Certificazioni</h2>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <div style="padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card); transition: border-color 0.3s ease;">
+              <h3 style="font-weight: 600; color: var(--foreground);">Spring Boot 3, Spring 6 & Hibernate</h3>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem; margin-top: 0.25rem;">Udemy — 2024</p>
+            </div>
+            <div style="padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card); transition: border-color 0.3s ease;">
+              <h3 style="font-weight: 600; color: var(--foreground);">Java Web App</h3>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem; margin-top: 0.25rem;">ONstairs — 2021</p>
+            </div>
+            <div style="padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card); transition: border-color 0.3s ease;">
+              <h3 style="font-weight: 600; color: var(--foreground);">Security Soft Start</h3>
+              <p style="color: var(--muted-foreground); font-size: 0.875rem; margin-top: 0.25rem;">ONstairs — 2020</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-text font-mono">© 2026 — Built with <span class="text-primary">passion</span> &amp; <span class="text-accent">code</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/sergiocivitarese" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/sergiocivitarese" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

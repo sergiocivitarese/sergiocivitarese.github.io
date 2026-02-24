@@ -1,0 +1,1349 @@
+/* ============================================
+ * STYLE.CSS - Portfolio Sergio Civitarese
+ * Design moderno HTML/CSS/JS puro
+ * Font: Space Grotesk (testo) + JetBrains Mono (linea)
+ *
+ * GUIDA PERSONALIZZAZIONE:
+ * 1. Colori: Modifica le variabili --primary e --accent per cambiare tema completo
+ * 2. Spaziature: Aumenta/diminuici i valori rem in padding e margin
+ * 3. Font: Cambia Google Fonts imports all'inizio dell'HTML
+ * 4. Responsive: Modifica il breakpoint 768px se vuoi diversa mobile/desktop
+ * ============================================ */
+
+/* ==================== VARIABILI COLORI (HSL) ==================== */
+/*
+ * SISTEMA COLORI HSL:
+ * HSL = Hue (0-360°), Saturation (0-100%), Lightness (0-100%)
+ * Vantaggi: Facile regolare luminosità senza ricalcolare RGB
+ *
+ * PERSONALIZZAZIONE COLORI:
+ * Per cambiare tema, modifica solo:
+ * 1. --primary (colore principale blu → cambia Hue di 205)
+ * 2. --accent (colore accento arancio → cambia Hue di 35)
+ * Esempio: Per rosso primario: hsl(0, 85%, 50%) invece di hsl(205, 85%, 50%)
+ *
+ * ESEMPIO DI TEMA ALTERNATE:
+ * Viola: --primary: hsl(280, 85%, 50%)
+ * Rosa: --accent: hsl(350, 95%, 55%)
+ */
+:root {
+  /* ===== COLORI BACKGROUND E TESTO PRINCIPALE ===== */
+  /* --background: colore fondo pagina principale (grigio ultra light moderno) */
+  --background: hsl(210, 20%, 98%);
+  /* --foreground: colore testo principale (nero molto scuro) */
+  --foreground: hsl(220, 25%, 10%);
+
+  /* ===== CARD STYLING ===== */
+  /* Card sono gli elementi riquadrati (skills, timeline, activity cards) */
+  --card: hsl(0, 0%, 100%);                    /* Sfondo bianco puro */
+  --card-foreground: hsl(220, 25%, 10%);       /* Testo dentro card (nero) */
+
+  /* ===== COLORE PRIMARIO (BLU) ===== */
+  /* Usato per: logo, link attivi, border hover, gradient primario */
+  --primary: hsl(205, 85%, 50%);               /* Blu vibrante moderno */
+  --primary-foreground: hsl(0, 0%, 100%);      /* Testo su fondo blu (bianco) */
+
+  /* ===== COLORE SECONDARIO (SCURO) ===== */
+  /* Usato per: header, footer, background sezioni scure */
+  --secondary: hsl(220, 20%, 14%);             /* Grigio-nero profondo */
+  --secondary-foreground: hsl(0, 0%, 100%);    /* Testo su fondo scuro (bianco) */
+
+  /* ===== TESTO SMORZATO (GRIGIO MEDIO) ===== */
+  /* Usato per: testo descrittivo, metadata, informazioni secondarie */
+  --muted: hsl(210, 15%, 93%);                 /* Sfondo grigio molto light */
+  --muted-foreground: hsl(215, 12%, 50%);      /* Testo grigio medio */
+
+  /* ===== COLORE ACCENTO (ARANCIO) ===== */
+  /* Usato per: accenti, highlights, pulsanti secondari, CTA section background */
+  --accent: hsl(35, 95%, 55%);                 /* Arancio caldo moderno */
+  --accent-foreground: hsl(220, 25%, 10%);     /* Testo su arancio (nero) */
+
+  /* ===== BORDI ===== */
+  /* Colore standard per border di card, input, elementi */
+  --border: hsl(210, 15%, 88%);                /* Grigio chiaro per bordi soft */
+
+  /* ===== HEADER E FOOTER (TEMA SCURO) ===== */
+  /* Header è sticky in alto con menu e logo */
+  /* Footer è in basso con copyright e social link */
+  --header: hsl(220, 20%, 6%);                 /* Nero profondo (sfondo) */
+  --header-foreground: hsl(0, 0%, 100%);       /* Bianco (testo in header) */
+  --footer: hsl(220, 20%, 6%);                 /* Nero profondo (stesso di header) */
+  --footer-foreground: hsl(210, 10%, 70%);     /* Grigio chiaro (testo footer) */
+
+  /* ===== COLORI GRADIENTS EXTRA ===== */
+  /* Usati per sfumature e effetti visivi */
+  --sky: hsl(200, 90%, 60%);                   /* Blu chiaro per gradients hero */
+  --amber: hsl(30, 95%, 55%);                  /* Giallo-arancio per CTA gradient */
+
+  /* ===== BORDER RADIUS STANDARD ===== */
+  /* Regola la "rotondità" degli angoli su card, button, input */
+  /* Aumenta per stile più soft (es: 1.25rem), diminuisci per più angular (es: 0.5rem) */
+  --radius: 0.75rem;
+}
+
+/* ==================== CAROUSEL / SLIDER STILI ==================== */
+/*
+ * PHOTO CAROUSEL: Slider moderno di immagini personali
+ * Features: Transizioni smooth, indicatori interattivi, frecce di navigazione
+ * Responsive: Full width su mobile, contenuto su desktop
+ */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: calc(var(--radius) * 2);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 110%;
+  min-height: 110%;
+}
+
+/* Overlay con titolo della slide -->
+.carousel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 2rem 1.5rem 1.5rem;
+  color: white;
+}
+
+.carousel-overlay h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Pulsanti di navigazione (frecce) */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn--prev {
+  left: 1rem;
+}
+
+.carousel-btn--next {
+  right: 1rem;
+}
+
+/* Indicatori (dots) */
+.carousel-indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicator.active {
+  background: white;
+  border-color: white;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  border-color: white;
+}
+
+/* Responsive: mobile optimizzato */
+@media (max-width: 768px) {
+  .carousel-container {
+    max-width: 20rem;
+  }
+  
+  .carousel-slide {
+    aspect-ratio: 4 / 3;
+  }
+  
+  .carousel-image {
+    min-width: 125%;
+    min-height: 125%;
+    object-position: 35% 50%;
+  }
+  
+  .carousel-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  
+  .carousel-btn--prev {
+    left: 0.75rem;
+  }
+  
+  .carousel-btn--next {
+    right: 0.75rem;
+  }
+  
+  .carousel-overlay {
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  .carousel-overlay h3 {
+    font-size: 1rem;
+  }
+}
+
+/* ==================== RESET & BASE STYLES ==================== */
+/*
+ * RESET: Normalizza comportamenti browser di default
+ * Tutt gli elementi partono da zero (margin/padding = 0)
+ * box-sizing: border-box → padding/border inclusi nella largezza totale
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html {
+  /* scroll-behavior: smooth → scrolling delle pagine è fluido e animato (non istantaneo) */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Font principale per tutto il sito: Space Grotesk da Google Fonts */
+  /* Fallback: system-ui per velocità, monospace come ultima opzione */
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;              /* Minimo una viewport height (permette footer position:fixed) */
+  display: flex;
+  flex-direction: column;          /* Colonna: header in alto, main esteso, footer in basso */
+  line-height: 1.6;               /* Spazio tra righe di testo (leggibilità) */
+}
+
+main {
+  flex: 1;                         /* Prende spazio disponibile tra header e footer */
+  width: 100%;
+}
+
+/* ===== CLASSI UTILITY ===== */
+
+/* Font monospace: Usato per testo tecnico, codice, linee */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* Container: Crea margini orizzontali (responsive padding) */
+/* Max-width 1400px garantisce non diventa troppo largo su desktop 4K */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;              /* Mobile: 24px di padding laterale */
+  width: 100%;
+}
+/* @media desktop aumenterà padding a 2rem (32px) */
+
+/* Classi colore utilities: Applica velocemente colori ai testi */
+.text-primary { color: var(--primary); }     /* Blu */
+.text-accent  { color: var(--accent); }      /* Arancio */
+.text-muted   { color: var(--muted-foreground); }  /* Grigio medio */
+
+/* ==================== HEADER STICKY ==================== */
+/*
+ * HEADER LAYOUT:
+ * - position: sticky → Header rimane in alto quando scrollhi
+ * - z-index: 50 → Stai sopra altri elementi (ma sotto hamburger menu z-index:41)
+ * - backdrop-filter: blur(10px) → Effetto glassmorphism (sfondo leggermente blurred)
+ *
+ * PERSONALIZZAZIONE:
+ * - Aumenta padding per header più spazioso
+ * - Cambia --header per colore non-nero (es: blu scuro)
+ * - Aumenta border-bottom width per linea più visibile
+ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header);
+  color: var(--header-foreground);
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(10px);
+  background-color: rgba(13, 46, 74, 0.95);
+}
+
+/* Header inner: Contenitore flex che distribuisce logo e menu */
+.header-inner {
+  display: flex;
+  align-items: center;             /* Centra verticalmente logo e menu */
+  justify-content: space-between;   /* Logo a sinistra, menu a destra */
+  padding: 1rem 0;                 /* Padding verticale 1rem */
+}
+
+@media (min-width: 1024px) {
+  .header-inner {
+    padding: 1rem 0;               /* Desktop: stesso padding */
+  }
+}
+
+/* Logo / Branding */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--header-foreground);
+  letter-spacing: -0.025em;        /* Riduce spazio tra lettere (compatto) */
+  transition: opacity 0.3s ease;   /* Smooth fade on hover */
+}
+
+.logo:hover {
+  opacity: 0.8;                    /* Diventa più scuro al hover */
+}
+
+/* Navigazione desktop (visibile solo su schermi ≥768px) */
+.nav-desktop {
+  display: flex;
+  gap: 2rem;                       /* Spazio tra link */
+  list-style: none;
+}
+
+/* Link navigazione style */
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsla(0, 0%, 100%, 0.7);   /* Bianco semi-trasparente */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;               /* Per lo pseudo-elemento ::after */
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);           /* Diventa blu al hover */
+}
+
+/* Underline animato sotto i link */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;                         /* Parte da 0 larghezza */
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;                      /* Si estende a tutta larghezza al hover */
+}
+
+/* ==================== HAMBURGER MENU MOBILE ==================== */
+/*
+ * HAMBURGER BUTTON:
+ * - Nascosto su desktop (display: flex solo con @media max-width:768px)
+ * - z-index: 41 → Sopra il menu drawer (z-index: 40) così rimane sempre visibile
+ * - position: relative → Crea nuovo stacking context per z-index
+ *
+ * ANIMAZIONE:
+ * Quando aggiunto .open class:
+ * - Primo span: Ruota 45° verso il basso (diventa "/" della X)
+ * - Secondo span: Scompare (opacity: 0)
+ * - Terzo span: Ruota -45° verso l'alto (diventa "\" della X)
+ */
+.hamburger {
+  display: none;                   /* Nascosto di default (visibile solo mobile) */
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0.75rem;
+  width: 36px;
+  z-index: 51;                     /* Sempre sopra il menu drawer (40) e header (50) */
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--header-foreground);
+  transition: 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Animazione X quando hamburger.open è attivo */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(12px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-12px);
+}
+
+/* ==================== MOBILE MENU DRAWER ==================== */
+/*
+ * MOBILE MENU DESIGN:
+ * - position: fixed → Copy il viewport (non scrolled con pagina)
+ * - right: -100% → Inizia fuori schermo a destra
+ * - Sliding animation: right: 0 (quando .open class aggiunto)
+ * - Transizione easing: cubic-bezier(0.4, 0, 0.2, 1) (smooth timing)
+ * - z-index: 40 → Sotto hamburger (41) così hamburger non scompare
+ *
+ * MENU NON SCROLLABILE:
+ * - Removed overflow-y: auto → Menu è fisso, user must close per scrollare pagina
+ * - padding-top: 12rem → Spazio dal top alla navigazione
+ *
+ * PERSONALIZZAZIONE:
+ * - Aumenta padding-top per contenuto ancora più giù
+ * - Cambia transition duration da 0.4s a 0.3s per velocità diversa
+ */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: var(--header);
+  backdrop-filter: blur(10px);
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  overflow-y: auto;
+}
+
+.nav-mobile.open {
+  right: 0;
+}
+
+@media (min-width: 769px) {
+  .nav-mobile {
+    display: none !important;
+  }
+}
+
+.nav-mobile .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.nav-mobile .nav-link {
+  font-size: 1.25rem;              /* Più grande del desktop per tocchi mobile */
+  font-weight: 500;
+  color: var(--header-foreground);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-mobile .nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-mobile .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-mobile .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Overlay semitrasparente dietro il mobile menu */
+.nav-mobile::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(220, 20%, 6%, 0.5);
+  opacity: 0;
+  pointer-events: none;            /* Non blocca click su elementi dietro */
+  transition: opacity 0.4s ease;
+  z-index: -1;                     /* Dietro il menu */
+}
+
+.nav-mobile.open::before {
+  opacity: 1;                      /* Overlay visibile quando menu aperto */
+}
+
+/* Logo/Nome utente nella mobile menu (sezione superiore) */
+.nav-mobile-user {
+  font-size: 1.25rem;
+  color: var(--header-foreground);
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.025em;
+  padding: 1.5rem 2rem;            /* Box attorno il nome */
+  background: hsla(0, 0%, 100%, 0.08);  /* Sfondo quasi trasparente */
+  border-radius: var(--radius);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  width: 90%;
+  text-align: center;
+}
+
+/* Social links (GitHub, LinkedIn) in fondo al mobile menu */
+.nav-mobile .social-links {
+  position: absolute;
+  bottom: 3rem;                    /* 48px dal bottom della pagina */
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-mobile .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--header-foreground);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-mobile .social-links a:hover {
+  color: var(--primary);
+  transform: scale(1.2);           /* Icone diventano più grandi al hover */
+}
+
+.nav-mobile .social-links svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    hsla(205, 85%, 50%, 0.05) 0%,
+    var(--background) 50%,
+    hsla(35, 95%, 55%, 0.05) 100%
+  );
+  z-index: 0;
+}
+
+/* Blob animation */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+  z-index: 1;
+  animation: float 20s ease-in-out infinite;
+}
+
+.hero-blob--right {
+  top: 5rem;
+  right: 2.5rem;
+  width: 18rem;
+  height: 18rem;
+  background: hsla(205, 85%, 50%, 0.1);
+  animation-delay: 0s;
+}
+
+.hero-blob--left {
+  bottom: 5rem;
+  left: 2.5rem;
+  width: 15rem;
+  height: 15rem;
+  background: hsla(35, 95%, 55%, 0.1);
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  33%      { transform: translate(30px, -30px); }
+  66%      { transform: translate(-30px, 20px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 48rem;
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.hero-greeting {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-name {
+  font-size: clamp(3rem, 7vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    to right,
+    var(--primary),
+    var(--sky),
+    var(--accent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fade-in-up 0.8s ease-out 0.1s backwards;
+}
+
+.hero-role {
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  color: hsla(220, 25%, 10%, 0.7);
+  margin-bottom: 1.5rem;
+  animation: fade-in-up 0.8s ease-out 0.2s backwards;
+}
+
+.hero-desc {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  max-width: 36rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  animation: fade-in-up 0.8s ease-out 0.3s backwards;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero-desc p {
+  margin: 0;
+  color: var(--muted-foreground);
+  line-height: 1.8;
+}
+
+.hero-desc strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fade-in-up 0.8s ease-out 0.4s backwards;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== HERO LAYOUT RESPONSIVE ==================== */
+.hero-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero-header {
+  animation: fade-in-up 0.8s ease-out;
+  margin-bottom: 4rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  animation: fade-in-up 0.8s ease-out 0.1s backwards;
+}
+
+/* FOTO PROFILO CIRCOLARE - DESKTOP */
+.profile-photo-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.profile-photo {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  
+  /* Bordo azzurro-giallo a doppio strato */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  padding: 4px;
+  box-shadow: 
+    0 0 30px hsla(205, 85%, 50%, 0.4),
+    0 0 60px hsla(35, 95%, 55%, 0.2);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--card);
+}
+
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ==================== MOBILE MENU PROFILE ==================== */
+.mobile-menu-profile {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+}
+
+.mobile-profile-image {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  padding: 3px;
+  box-shadow: 
+    0 0 25px hsla(205, 85%, 50%, 0.35),
+    0 0 50px hsla(35, 95%, 55%, 0.15);
+  border: 2px solid var(--card);
+  display: block;
+}
+
+/* ==================== RESPONSIVE - TABLET ==================== */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  .hero-header {
+    margin-bottom: 3rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .profile-photo {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-text-content {
+    text-align: center;
+  }
+}
+
+/* ==================== RESPONSIVE - MOBILE ==================== */
+@media (max-width: 640px) {
+  .hero-wrapper {
+    padding: 0 1rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+    padding: 3px;
+  }
+
+  .profile-photo-wrapper {
+    justify-content: center;
+  }
+
+  .hero-text-content {
+    text-align: center;
+  }
+
+  .hero-role {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
+  }
+
+  .hero-desc {
+    font-size: 1rem !important;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+/* Mostra foto nel menu mobile quando hamburger è aperto */
+@media (max-width: 768px) {
+  .mobile-menu-profile {
+    display: flex;
+  }
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--sky) 100%);
+  color: var(--primary-foreground);
+  box-shadow: 0 4px 15px hsla(205, 85%, 50%, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px hsla(205, 85%, 50%, 0.4);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--border);
+  color: var(--foreground);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: hsla(205, 85%, 50%, 0.05);
+}
+
+/* ==================== SKILLS SECTION ==================== */
+.skills {
+  padding: 5rem 0;
+  background: hsla(210, 15%, 93%, 0.5);
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.skills-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.skills-header p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px)  { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px)  { .skills-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1024px) { .skills-grid { grid-template-columns: repeat(6, 1fr); } }
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-card:hover {
+  border-color: hsla(205, 85%, 50%, 0.4);
+  box-shadow: 0 0 40px -10px hsla(205, 85%, 50%, 0.4);
+  transform: translateY(-4px);
+}
+
+.skill-card img {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover img {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.skill-card span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsla(220, 25%, 10%, 0.8);
+  text-align: center;
+}
+
+/* ==================== CTA SECTION ==================== */
+.cta-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--amber) 100%);
+  color: var(--accent-foreground);
+  border-radius: var(--radius);
+  text-align: center;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    hsla(0, 0%, 255%, 0.1) 0%,
+    transparent 50%
+  ), radial-gradient(
+    circle at 80% 80%,
+    hsla(0, 0%, 255%, 0.1) 0%,
+    transparent 50%
+  );
+  z-index: 0;
+}
+
+.cta-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.cta-section p {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+.cta-section .hero-actions {
+  justify-content: center;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  background: var(--footer);
+  color: var(--footer-foreground);
+  margin-top: auto;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3.5rem 0;
+}
+
+@media (min-width: 1024px) {
+  .footer-inner {
+    padding: 4rem 0;
+  }
+}
+
+.footer-text {
+  font-size: 1rem;
+  font-weight: 500;
+  order: 2;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 3.5rem;
+  order: 1;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--footer-foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-links svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.footer-links a:hover svg {
+  transform: scale(1.2);
+}
+
+/* ==================== TIMELINE ==================== */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--primary) 0%,
+    var(--sky) 100%
+  );
+  border-radius: 3px;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--sky));
+  border: 4px solid var(--card);
+  box-shadow: 0 0 0 3px var(--primary), 0 4px 12px hsla(205, 85%, 50%, 0.3);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+  box-shadow: 0 0 0 3px var(--sky), 0 8px 20px hsla(205, 85%, 50%, 0.4);
+  transform: scale(1.2);
+}
+
+.timeline-item h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-item__meta {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item__description {
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+/* ==================== CARD SECTION ==================== */
+.card-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card-section:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 30px -8px hsla(205, 85%, 50%, 0.3);
+}
+
+.card-section h3 {
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.card-section p {
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+.card-section ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.card-section li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--muted-foreground);
+}
+
+.card-section li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ==================== ACTIVITY CARDS ==================== */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.activity-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.05);
+}
+
+.activity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px hsla(205, 85%, 50%, 0.15);
+  border-color: var(--primary);
+}
+
+.activity-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--muted);
+}
+
+.activity-card__content {
+  padding: 1.5rem;
+}
+
+.activity-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.activity-card__description {
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .container {
+    padding: 1rem 1.5rem;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+  }
+
+  .hero-role {
+    font-size: 1.25rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .skills-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .container {
+    padding: 1rem 2rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  header,
+  footer,
+  .hamburger {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .hero-name {
+    -webkit-text-fill-color: unset;
+    background: none;
+  }
+
+  .skill-card {
+    break-inside: avoid;
+  }
+}

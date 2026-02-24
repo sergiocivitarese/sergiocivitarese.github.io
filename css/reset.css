@@ -1,0 +1,63 @@
+/*
+ * RESET.CSS
+ * Normalizza gli stili predefiniti del browser per una base coerente
+ * Applica reset comune a tutti gli elementi HTML
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Rimuovi stili predefiniti da liste */
+ul, ol {
+  list-style: none;
+}
+
+/* Link senza stile predefinito */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Immagini responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Rimuovi bordi dai button */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Heading con stile base coerente */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+/* Input e textarea */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Rimuovi stili da form elements */
+input, textarea, button {
+  outline: none;
+}

@@ -1,0 +1,105 @@
+/*
+ * VARIABLES.CSS
+ * Definisce tutte le variabili CSS utilizzate in tutto il progetto
+ * Questi valori possono essere facilmente modificati per cambiare il tema globale
+ */
+
+:root {
+  /* ========== COLORI PRIMARI MODERNI ========== */
+  --color-primary-blue: #2563eb;      /* Blu moderno e vibrante */
+  --color-primary-light: #3b82f6;     /* Blu più chiaro */
+  --color-primary-lighter: #60a5fa;   /* Blu molto chiaro */
+  --color-accent-yellow: #f59e0b;     /* Arancio soft moderno */
+  --color-accent-yellow-light: #fbbf24; /* Arancio più chiaro */
+  --color-accent-orange: #f97316;     /* Arancio più vibrante */
+  --color-dark: #1f2937;              /* Nero soft/grigio scuro */
+  --color-darker: #111827;            /* Nero ancora più scuro */
+  --color-light: #ffffff;             /* Bianco puro */
+  --color-gray-light: #f9fafb;        /* Grigio ultra light moderno */
+  --color-gray-lighter: #f3f4f6;      /* Grigio light alternativo */
+  --color-gray-medium: #6b7280;       /* Grigio medio moderno */
+  --color-text: #1f2937;              /* Testo principale - dark soft */
+  --color-text-light: #6b7280;        /* Testo secondario - grigio */
+
+  /* ========== COLORI COMPONENTI ========== */
+  --color-header: var(--color-dark);        /* Header nero soft */
+  --color-footer: var(--color-dark);        /* Footer nero soft */
+  --color-button-hover: var(--color-accent-yellow);
+  --color-shadow: rgba(37, 99, 235, 0.12);  /* Ombra blu moderna tenue */
+
+  /* ========== FONT ========== */
+  --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-heading: 'Arial', sans-serif;
+
+  /* Font sizes */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.5rem;       /* 24px */
+  --font-size-2xl: 2rem;        /* 32px */
+  --font-size-3xl: 2.5rem;      /* 40px */
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ========== SPACING MODERNO - PIÙ GENEROSO ========== */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 2.5rem;   /* 40px - aumentato per più whitespace */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 5rem;     /* 80px - whitespace generoso */
+
+  /* ========== BORDER RADIUS MODERNO ========== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-button: 25px;    /* Per button tondi e moderni */
+  --radius-card: 16px;      /* Per card arrotondate soft */
+
+  /* ========== TRANSIZIONI ========== */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+
+  /* ========== OMBRA MODERNA SYSTEM ========== */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+  /* Ombra per hover effect (lift up) */
+  --shadow-hover: 0 20px 25px -5px rgba(37, 99, 235, 0.15), 0 10px 10px -5px rgba(37, 99, 235, 0.08);
+
+  /* ========== BREAKPOINT ========== */
+  --breakpoint-mobile: 375px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1280px;
+
+  /* ========== CONTAINER ========== */
+  --container-max-width: 1200px;
+  --container-padding: var(--spacing-md);
+}
+
+/*
+ * Variabili per tema scuro (future expansion)
+ * Decommentare se si vuole implementare dark mode
+ */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: var(--color-light);
+    --color-text-light: var(--color-gray-medium);
+    --color-gray-light: #1a1a1a;
+  }
+} */

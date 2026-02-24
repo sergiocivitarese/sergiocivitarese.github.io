@@ -1,0 +1,289 @@
+/*
+ * RESPONSIVE.CSS
+ * Media queries per adattare il layout a diversi schermi
+ * Mobile-first approach: gli stili base sono per mobile
+ */
+
+/* ========== TABLET (768px e oltre) ========== */
+@media (min-width: 768px) {
+  /* Header responsive */
+  .logo {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: none !important;
+  }
+
+  .nav-desktop {
+    display: flex;
+  }
+
+  /* Main container padding */
+  .main-container {
+    padding: var(--spacing-2xl) var(--container-padding);
+  }
+
+  /* Skills grid su tablet */
+  .skills-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Activity grid su tablet */
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Hero text sizing */
+  .hero h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* Sezioni su tablet */
+  section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  section h2 {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ========== DESKTOP (1024px e oltre) ========== */
+@media (min-width: 1024px) {
+  /* Header con nome a sinistra */
+  .header-content {
+    justify-content: space-between;
+  }
+
+  /* Skills grid su desktop - 3 colonne */
+  .skills-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Activity grid su desktop - 3 colonne */
+  .activity-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Tool grid su desktop */
+  .tools-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Hero section su desktop */
+  .hero {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .hero p {
+    font-size: var(--font-size-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ========== SCHERMI GRANDI (1280px e oltre) ========== */
+@media (min-width: 1280px) {
+  .container,
+  .header-content,
+  .footer-content,
+  .main-container {
+    max-width: 1200px;
+  }
+
+  /* Skills grid - 4 colonne su schermi grandi */
+  .skills-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Activity grid - 3 colonne già */
+  .activity-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Sezioni text sizing */
+  section h2 {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ========== MOBILE (375px - 767px) ========== */
+@media (max-width: 767px) {
+  /* Hamburger menu sempre visibile su mobile */
+  .menu-toggle {
+    display: block;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  /* Nascondi menu desktop su mobile */
+  .nav-desktop {
+    display: none;
+  }
+
+  /* Header padding ridotto su mobile */
+  header {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .header-content {
+    padding: 0;
+  }
+
+  /* Main container padding ridotto */
+  .main-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  /* Typography su mobile */
+  .hero h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero p {
+    font-size: var(--font-size-base);
+  }
+
+  section h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  section h3 {
+    font-size: var(--font-size-base);
+  }
+
+  /* Skills su mobile */
+  .skills-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tools su mobile */
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Activity su mobile */
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero actions su mobile */
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  /* Card skill su mobile */
+  .card-skill {
+    padding: var(--spacing-md);
+  }
+
+  .card-skill__logo {
+    width: 50px;
+    height: 50px;
+    font-size: var(--font-size-xl);
+  }
+
+  /* Footer su mobile */
+  footer {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .footer-content {
+    gap: var(--spacing-md);
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .footer-links a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Timeline su mobile */
+  .timeline {
+    padding-left: var(--spacing-lg);
+  }
+
+  .timeline::before {
+    left: -6px;
+    width: 1px;
+  }
+
+  .timeline-item::before {
+    left: -11px;
+    width: 10px;
+    height: 10px;
+  }
+
+  /* CTA section su mobile */
+  .cta-section {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .cta-section h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  /* Content box su mobile */
+  .content-box {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+  }
+}
+
+/* ========== STAMPA ========== */
+@media print {
+  header,
+  footer,
+  .menu-toggle,
+  .hero-actions {
+    display: none;
+  }
+
+  * {
+    box-shadow: none;
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .container,
+  .main-container {
+    max-width: 100%;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}
+
+/* ========== ACCESSIBILITÀ - PREFERENZA MOVIMENTO ========== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
