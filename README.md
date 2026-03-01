@@ -24,6 +24,7 @@ Portfolio web moderno e responsivo di **Sergio Civitarese** - Software Developer
 - ✅ **Responsive**: Mobile (320px), Tablet (768px), Desktop (1200px+)
 - ✅ **Nessun Framework**: HTML/CSS/JS puro, facile da modificare e host
 - ✅ **Icon CDN**: Skill icons da Devicons CDN (Java, SQL, Python, CSS, HTML, ecc.)
+- ✅ **CSS Modulare**: Architettura CSS split in più file per migliore manutenibilità
 
 ### Caratteristiche Design
 - **Font**: Space Grotesk (testo) + JetBrains Mono (codice)
@@ -42,9 +43,15 @@ portfolio/
 ├── curriculum.html               # CV/Curriculum completo
 ├── presentazione.html             # About page con sport e hobby
 ├── css/
-│   └── style.css                 # CSS centralizzato (~900 linee)
+│   ├── reset.css                 # CSS reset base
+│   ├── variables.css             # Variabili CSS centralizzate (colori, font, spacing)
+│   ├── layout.css                # Layout primario e struttura
+│   ├── components.css            # Stili componenti singoli
+│   ├── responsive.css            # Media queries e adattamenti responsive
+│   └── style.css                 # Stili specifici e personalizzati
 ├── js/
-│   └── main.js                   # Menu hamburger toggle
+│   ├── main.js                   # Menu hamburger + carousel photos
+│   └── menu.js                   # Gestione menu responsive
 └── README.md                      # Questa guida
 ```
 
@@ -64,35 +71,59 @@ portfolio/
 
 ### 1. Cambiare Colori (Tema Globale)
 
-**File**: `css/style.css` linea 29-82
+**File**: `css/variables.css` (linee 10-27) e `css/style.css` (linee 29-72)
 
-Modifica solo queste 2 variabili:
+Le variabili CSS principali sono:
 
 ```css
---primary: hsl(205, 85%, 50%);   /* Blu principale */
---accent: hsl(35, 95%, 55%);     /* Arancio accento */
+/* In variables.css */
+--color-primary-blue: #2563eb;      /* Blu moderno */
+--color-accent-yellow: #f59e0b;     /* Arancio soft */
+--color-dark: #1f2937;              /* Nero soft */
+
+/* In style.css */
+--primary: hsl(205, 85%, 50%);      /* Blu principale */
+--accent: hsl(35, 95%, 55%);        /* Arancio accento */
 ```
 
+**Modifica il tema cambiando i valori nei :root di variables.css e style.css**
+
 **Esempi tema alternativo:**
-- Viola + Rosa: `hsl(280, 85%, 50%)` + `hsl(350, 95%, 55%)`
-- Verde + Giallo: `hsl(120, 85%, 40%)` + `hsl(55, 100%, 45%)`
+- Viola + Rosa: `--primary: hsl(280, 85%, 50%)` + `--accent: hsl(350, 95%, 55%)`
+- Verde + Giallo: `--primary: hsl(120, 85%, 40%)` + `--accent: hsl(55, 100%, 45%)`
 
 ### 2. Modificare Spaziature
 
-Aumenta `padding` e `margin` nei vari elementi. Tutti usano `rem`:
-- `1rem` = 16px
-- `1.5rem` = 24px
-- `2rem` = 32px
+**File**: `css/variables.css` (linee 46-60)
+
+Modifica le variabili di spacing standard:
+
+```css
+--spacing-xs: 0.25rem;   /* 4px */
+--spacing-sm: 0.5rem;    /* 8px */
+--spacing-md: 1rem;      /* 16px */
+--spacing-lg: 1.5rem;    /* 24px */
+--spacing-xl: 2rem;      /* 32px */
+```
 
 ### 3. Cambiare Font
 
-In ogni HTML, modifica questo link (linea 9-11):
+**File**: In ogni HTML, modifica il link Google Fonts (linea 9-11):
 
 ```html
 <link href="https://fonts.googleapis.com/css2?family=FONT_NAME:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
+E aggiorna le famiglie font in `css/variables.css` (linee 30-31):
+
+```css
+--font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+--font-family-heading: 'Arial', sans-serif;
+```
+
 ### 4. Personalizzare Header/Footer
+
+**File**: `css/layout.css`
 
 - Logo size: `.logo { font-size: 1.5rem; }`
 - Link size: `.nav-link { font-size: 0.875rem; }`
@@ -197,7 +228,13 @@ Edita ENTRAMBI i menu (desktop + mobile):
 
 ## Variabili CSS Disponibili
 
-### Colori (HSL)
+### Colori Moderni (ESA + HSL)
+
+> **Nota**: Le variabili sono definite in due file:
+> - `variables.css` con esadecimali (#2563eb) per colori base
+> - `style.css` con HSL per colori tema principale
+
+**Colori Primari** (in style.css)
 
 | Variabile | Valore | Uso |
 |-----------|--------|-----|
@@ -209,13 +246,33 @@ Edita ENTRAMBI i menu (desktop + mobile):
 | `--border` | `hsl(210, 15%, 88%)` | Colore bordi |
 | `--radius` | `0.75rem` | Border radius |
 
-### Spacing Standard
+**Colori Base** (in variables.css)
 
-- `0.5rem` = 8px
-- `1rem` = 16px
-- `1.5rem` = 24px
-- `2rem` = 32px
-- `3rem` = 48px
+| Variabile | Valore | Uso |
+|-----------|--------|-----|
+| `--color-primary-blue` | `#2563eb` | Blu base |
+| `--color-accent-yellow` | `#f59e0b` | Arancio soft |
+| `--color-dark` | `#1f2937` | Nero soft |
+| `--color-text` | `#1f2937` | Testo principale |
+| `--color-text-light` | `#6b7280` | Testo secondario |
+
+### Spacing Standard (variables.css)
+
+- `--spacing-xs: 0.25rem` = 4px
+- `--spacing-sm: 0.5rem` = 8px
+- `--spacing-md: 1rem` = 16px
+- `--spacing-lg: 1.5rem` = 24px
+- `--spacing-xl: 2rem` = 32px
+
+### Font Sizes (variables.css)
+
+- `--font-size-xs: 0.75rem` = 12px
+- `--font-size-sm: 0.875rem` = 14px
+- `--font-size-base: 1rem` = 16px
+- `--font-size-lg: 1.125rem` = 18px
+- `--font-size-xl: 1.5rem` = 24px
+- `--font-size-2xl: 2rem` = 32px
+- `--font-size-3xl: 2.5rem` = 40px
 
 ---
 
@@ -240,5 +297,6 @@ Edita ENTRAMBI i menu (desktop + mobile):
 
 ---
 
-**Versione**: 1.0 Final
-**Ultima modifica**: 14 Febbraio 2026
+**Versione**: 2.0 - Refactored
+**Ultima modifica**: 1 Marzo 2026
+**Cambiamenti**: CSS modulare (5 file), JS separato, variabili CSS migliorate
